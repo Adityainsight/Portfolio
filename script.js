@@ -74,8 +74,8 @@ revealElements.forEach((element, index) => {
 const sections = document.querySelectorAll('section');
 sections.forEach(section => {
     const header = section.querySelector('.section-header');
-    if(header) {
-        gsap.fromTo(header, 
+    if (header) {
+        gsap.fromTo(header,
             { y: 50, opacity: 0 },
             {
                 y: 0,
@@ -95,11 +95,11 @@ sections.forEach(section => {
 const workSection = document.querySelector('.work-section');
 const projects = document.querySelectorAll('.project-card');
 
-if(workSection && projects.length > 0) {
-    gsap.fromTo(projects, 
+if (workSection && projects.length > 0) {
+    gsap.fromTo(projects,
         { y: 100, opacity: 0 },
         {
-            y: 0, 
+            y: 0,
             opacity: 1,
             duration: 1,
             stagger: 0.2,
