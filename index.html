@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Sharma | Terminal v2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="crt-off"> <!-- CRT effect toggled via JS optionally, defaulting to always on in css usually -->
+
+    <!-- Screen Overlay Effects -->
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <div class="screen-glow"></div>
+
+    <div class="terminal-wrapper">
+
+        <!-- Top Bar (Fake GUI) -->
+        <div class="top-bar">
+            <div class="left-stats">
+                <span>CPU: <span id="cpu-stat">12%</span></span>
+                <span>RAM: <span id="ram-stat">4.2/16GB</span></span>
+            </div>
+            <div class="right-stats">
+                <span id="clock">00:00:00</span>
+                <span>NET: <span class="status-ok">CONNECTED</span></span>
+            </div>
+        </div>
+
+        <div class="container" id="main-container">
+
+            <!-- Boot Sequence Overlay -->
+            <div id="boot-sequence" class="boot-screen">
+                <div class="boot-log" id="boot-log"></div>
+            </div>
+
+            <!-- Main Content (Hidden until boot done) -->
+            <div id="terminal-interface" class="hidden">
+
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <pre id="ascii-portrait" class="ascii-art"></pre>
+                    <h1 class="glitch-text" data-text="ADITYA SHARMA">ADITYA SHARMA</h1>
+                    <div class="subtitle">SOFTWARE DEVELOPER | AI/ML ENGINEER | DATA SCIENCE & FINANCIAL MODELING</div>
+                </div>
+
+                <!-- Command Suggestion Bar (Non-Tech User Onboarding) -->
+                <div class="command-suggestions" id="command-suggestions">
+                    <div class="suggestion-header">
+                        <span class="suggestion-tip">💡 New here? Click any command below or type 'help'</span>
+                    </div>
+                    <div class="suggestion-buttons">
+                        <button class="cmd-btn" data-cmd="help" title="Show all available commands">help</button>
+                        <button class="cmd-btn" data-cmd="about" title="Learn about Aditya">about</button>
+                        <button class="cmd-btn" data-cmd="skills" title="View technical skills">skills</button>
+                        <button class="cmd-btn" data-cmd="projects" title="See featured projects">projects</button>
+                        <button class="cmd-btn" data-cmd="models" title="List ML models">models</button>
+                        <button class="cmd-btn" data-cmd="resume" title="Download resume">resume</button>
+                        <button class="cmd-btn" data-cmd="contact" title="Get in touch">contact</button>
+                    </div>
+                </div>
+
+                <!-- Terminal Output -->
+                <div id="output-area" class="output-area"></div>
+
+                <!-- Input Area -->
+                <div class="input-line">
+                    <span class="prompt">aditya@internship:~$</span>
+                    <input type="text" id="command-input" class="cmd-input" autocomplete="off" spellcheck="false"
+                        autofocus>
+                    <span class="cursor-block"></span>
+                </div>
+
+                <!-- Hidden File Upload -->
+                <input type="file" id="csv-upload" accept=".csv" style="display:none;">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hidden source image for ASCII generation -->
+    <img src="me.png" id="source-image" style="display:none;" crossOrigin="Anonymous">
+
+    <!-- Visualization Templates -->
+    <template id="viz-template">
+        <div class="viz-container">
+            <div class="viz-header">
+                <span class="viz-title">VIZ_TITLE</span>
+                <span class="viz-status">[RUNNING]</span>
+            </div>
+            <canvas width="600" height="400"></canvas>
+            <div class="viz-controls"></div>
+            <div class="viz-stats"></div>
+        </div>
+    </template>
+
+    <script type="module" src="js/boot.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
